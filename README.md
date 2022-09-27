@@ -28,5 +28,18 @@ $ sudo pacman -S figlet lolcat
 ```
 etc..  
 ### Build and install from source:
-(MAKEFILE coming soon!!!)
+Requires gcc and gnu make  
+  
+Build and install:  
+```
+$ sudo make install
+```
+Uninstall:  
+```
+$ sudo make uninstall
+```
+Remove binary from working dir:
+```
+$ sudo make clean
+```
 ## Thank you for reading my project <3
