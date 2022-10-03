@@ -554,21 +554,30 @@ int main(int argc, char* argv[])
 		return 0;
 	} else if(string(sh)=="clear"){
 		system(sh);
+		sh[0]='\0';
 	} else if(string(sh)=="help"){
 		cout<<inhelpstr;
+		sh[0]='\0';
 	} else if(string(sh)=="new"){
 		fnew();
+		sh[0]='\0';
 	} else if(string(sh)=="show"){
 		fshow();
+		sh[0]='\0';
 	} else if(string(sh)=="addition"){
 		fadd();
+		sh[0]='\0';
 	} else if(string(sh)=="multiplication"){
 		fmulti();
+		sh[0]='\0';
 	} else if(string(sh)=="trace"){
 		ftrace();
-	} else {
+		sh[0]='\0';
+	} 
+	
+	if(sh[0]!='\0') {
 		cout<<sh<<" is not a recognized as a internal or external command\n Please use (help) for a list of available commands\n";
 	}
-		
+
 }
 }
