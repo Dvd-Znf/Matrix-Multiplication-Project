@@ -90,18 +90,18 @@ void newint()
 	cout<<"Please asign a value: ";
 	if(a==0){
 		cin>>a;
-		cout<<"You asigned the value "<<a<<" to the 'a' variable";
+		cout<<"You asigned the value "<<a<<" to the 'a' variable\n";
 	} else if(b==0){
 		cin>>b;
-		cout<<"You asigned the value "<<b<<" to the 'b' variable";
+		cout<<"You asigned the value "<<b<<" to the 'b' variable\n";
 	} else if(c==0){
 		cin>>c;
-		cout<<"You asigned the value "<<c<<" to the 'c' variable";
+		cout<<"You asigned the value "<<c<<" to the 'c' variable\n";
 	} else if(d==0){
 		cin>>d;
-		cout<<"You asigned the value "<<d<<" to the 'd' variable";
+		cout<<"You asigned the value "<<d<<" to the 'd' variable\n";
 	} else {
-	       cout<<"WARNING: All available int's already hold value;";
+	       cout<<"WARNING: All available int's already hold value;\n";
            return;
 	}	       
 }
@@ -561,18 +561,23 @@ int main(int argc, char* argv[])
 	} else if(string(sh)=="new"){
 		fnew();
 		sh[0]='\0';
+		cin.ignore(255,'\n');
 	} else if(string(sh)=="show"){
 		fshow();
 		sh[0]='\0';
+		cin.ignore(255,'\n');
 	} else if(string(sh)=="addition"){
 		fadd();
 		sh[0]='\0';
+		cin.ignore(255,'\n');
 	} else if(string(sh)=="multiplication"){
 		fmulti();
 		sh[0]='\0';
+		cin.ignore(255,'\n');
 	} else if(string(sh)=="trace"){
 		ftrace();
 		sh[0]='\0';
+		cin.ignore(255,'\n');
 	} 
 	
 	if(sh[0]!='\0') {
