@@ -9,7 +9,7 @@ Trace - show the trace of a matrix
 Multiplication - multiply a matrix by an integer or by another matrix  
 ## Known issues:
 Bug in matrix multiplication  
-Bug in CLI interface after a function is called  
+~~Bug in CLI interface after a function is called~~    
 32 unnecesary if condition instead of a struct containing a char array and pointers to matrices   
 ## To be added:
 Help switch  
