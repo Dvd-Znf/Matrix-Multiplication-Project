@@ -541,6 +541,16 @@ static char inhelpstr[] = "\n"
 int main(int argc, char* argv[])
 {
 
+	for(int i=1;i<argc;++i){
+		if(string(argv[i]) == "-h" || string(argv[i]) == "--help"){
+				cout<<helpstr;
+				return 0;
+		} else {
+			cout<<argv[i]<<" unknown command\n";
+			return 0;
+		}
+	}
+
 	system("echo 'Matrix_ Multiplication_ Project_' | figlet | lolcat");
 	system("echo 'By Dvd-Znf' | lolcat");
 	char sh[255];
