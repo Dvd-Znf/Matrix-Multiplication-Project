@@ -1,5 +1,6 @@
 # The Matrix Multiplication Project
-Multiplication, Addition and Tracing of matrices of your chosing
+Multiplication, Addition and Tracing of matrices of your chosing  
+![Screenshot](/Screenshot.png)  
 ## Posible function:
 Help - show posible commands  
 New - register a new value for an integer or matrix  
