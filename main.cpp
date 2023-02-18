@@ -234,13 +234,13 @@ void fadd()
 	cout<<"Second one:";
 	cin>>resp2;
 
-	if(resp1=='A'){						//I will fix this mess up later
-		if(resp2=='A'){					//With 2 for loops
-			addmatrix(ma,ma,sia,sja,sia,sja);	//And a matrix than holds indexes
-		} else if(resp2=='B'){
-			addmatrix(ma,mb,sia,sja,sib,sjb);
-		} else if(resp2=='C'){
-			addmatrix(ma,mc,sia,sja,sic,sjc);
+	if(resp1=='A'){						//This can be fixed using a struct
+		if(resp2=='A'){					//That contains an array of chars and 
+			addmatrix(ma,ma,sia,sja,sia,sja);	//A 3-dimensional array
+		} else if(resp2=='B'){				//Ex with pseudo-code.:
+			addmatrix(ma,mb,sia,sja,sib,sjb);	//mat.name[1,2,3,4]='A','B','C','D';
+		} else if(resp2=='C'){				//mat.value[i][...][...]= [ma],[mb],[mc],[md];
+			addmatrix(ma,mc,sia,sja,sic,sjc);	//I will do this later...
 		} else if(resp2=='D'){
 			addmatrix(ma,md,sia,sja,sib,sjb);
 		} else {
@@ -345,7 +345,7 @@ void multiint()
 	cout<<"Which matrix to use?\n(A/B/C/D): ";
 	cin>>resp2;
 
-	if(resp1=='a'){				//This mess will be cleaned up later
+	if(resp1=='a'){					//Refer above for fix (237)
 		if(resp2=='A'){
 			intmulti(a,ma,sia,sja);
 			return;
@@ -446,9 +446,9 @@ void multimatrix()
 	cout<<"Second one:";
 	cin>>resp2;
 
-	if(resp1=='A'){						//I will fix this mess up later
-		if(resp2=='A'){					//With 2 for loops
-			matrixmulti(ma,ma,sia,sja,sia,sja);	//And a matrix than holds indexes
+	if(resp1=='A'){						//I will fix this later
+		if(resp2=='A'){					//Refer above (237)
+			matrixmulti(ma,ma,sia,sja,sia,sja);	//
 		} else if(resp2=='B'){
 			matrixmulti(ma,mb,sia,sja,sib,sjb);
 		} else if(resp2=='C'){
@@ -520,7 +520,7 @@ void fmulti()
 static char helpstr[] = "\n"
 			"Usage: mmp <command>\n"
 			"\n"
-			"Concatenate standard input to standard output.\n"
+			"CLI program that can be used to manipulate matrices\n"
 			"You can use the inner help function within mmp for more details\n"
 			"\n"
 			"Posible command options:\n"

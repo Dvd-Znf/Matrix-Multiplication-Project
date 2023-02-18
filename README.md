@@ -11,7 +11,7 @@ Multiplication - multiply a matrix by an integer or by another matrix
 ## Known issues:
 Bug in matrix multiplication  
 ~~Bug in CLI interface after a function is called~~    
-32 unnecesary if condition instead of a struct containing a char array and pointers to matrices   
+32 unnecesary if condition instead of a struct containing an array of names and a 3d array of values   
 ## To be added:
 ~~Help switch~~  
 Verbose mode/switch  
