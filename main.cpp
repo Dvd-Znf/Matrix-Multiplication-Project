@@ -5,6 +5,17 @@ using namespace std;
 
 int a=0,b=0,c=0,d=0;			//These are the int's
 
+//New fix for deleting the 32 if conditions:
+
+struct {
+	char name[4] = {'A','B','C','D'};
+	int mat[4][20][20];
+	int index[4][2];
+} structStack;
+
+
+//Old implementation:
+/*
 int ma[20][20],
     mb[20][20],				//Thses are the 'multi dimensional' array's
     mc[20][20],				//Feel free to change the max dimension
@@ -16,6 +27,7 @@ int sia=0,sja=0,
     sib=0,sjb=0,			//These are global indexes for the matrices		
     sic=0,sjc=0,			//Their value is extremely important
     sid=0,sjd=0;			//I wouldn't recommend changing the default
+*/
 
 void newmatrix()
 {
@@ -46,40 +58,14 @@ void newmatrix()
 	{
 		for(int jj=1;jj<=j;jj++)
 		{
-			if(countm==0){
-				cout<<"Value for ("<<ii<<","<<jj<<") : ";
-				cin>>ma[ii][jj];
-			} else if(countm==1){
-				cout<<"Value for ("<<ii<<","<<jj<<") : ";
-				cin>>mb[ii][jj];
-			} else if(countm==2){
-				cout<<"Value for ("<<ii<<","<<jj<<") : ";
-				cin>>mc[ii][jj];
-			} else if(countm==3){
-				cout<<"Value for ("<<ii<<","<<jj<<") : ";
-				cin>>md[ii][jj];
-			} 
+			cout<<"Value for ("<<ii<<","<<jj<<") : ";
+			cin>>structStack.mat[countm][ii][jj];
 		}
 	}
 
-	if(countm==0){
-		cout<<"You asigned new values to the 'A' matrix\n";
-		sia=i;
-		sja=j;
-	} else if(countm==1){
-		cout<<"You asigned new values to the 'B' matrix\n";
-		sib=i;
-		sjb=j;
-	} else if(countm==2){
-		cout<<"You asigned new values to the 'C' matrix\n";
-		sic=i;
-		sjc=j;
-	} else if(countm==3){
-		cout<<"You asigned new values to the 'D' matrix\n";
-		sid=i;
-		sjd=j;
-	} 
-
+		cout<<"You asigned new values to the '"<<structStack.name[countm]<<"' matrix\n";
+		structStack.index[countm][0]=i;
+		structStack.index[countm][1]=j;
 
 	countm++;
 }
@@ -150,42 +136,22 @@ void showmatrix()
 	cout<<"Which one?(A,B,C,D)";
 	char resp=' ';
 	cin>>resp;
-	if(resp=='A' && sia!=0 && sja!=0 ){
-		for(int i=1;i<=sia;i++){
-			for(int j=1;j<=sja;j++){
-				cout<<" "<<ma[i][j];
-			}
-			cout<<"\n";
+	
+	for(int chi=0;chi<4;chi++){
+		if(resp==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
+			for(int i=1;i<=structStack.index[chi][0];i++){
+				for(int j=1;j<=structStack.index[chi][1];j++){
+					cout<<" "<<structStack.mat[chi][i][j];
+				}
+				cout<<"\n";
 		}
-		return;
-	} else if(resp=='B' && sib!=0 && sjb!=0 ){
-		for(int i=1;i<=sib;i++){
-			for(int j=1;j<=sjb;j++){
-				cout<<" "<<mb[i][j];
-			}
-			cout<<"\n";
+		} else if(chi==3) {
+			cout<<"WARNING: Illegal response;\n";
+			return;
 		}
-		return;
-	} else if(resp=='C' && sic!=0 && sjc!=0 ){
-		for(int i=1;i<=sic;i++){
-			for(int j=1;j<=sjc;j++){
-				cout<<" "<<mc[i][j];
-			}
-			cout<<"\n";
-		}
-		return;
-	} else if(resp=='D' && sid!=0 && sjd!=0 ){
-		for(int i=1;i<=sid;i++){
-			for(int j=1;j<=sjd;j++){
-				cout<<" "<<md[i][j];
-			}
-			cout<<"\n";
-		}
-		return;
-	} else {
-		cout<<"WARNING: Illegal response;\n";
-		return;
-	}
+	} return;
+	
+	
 
 }
 
@@ -233,7 +199,22 @@ void fadd()
 	cin>>resp1;
 	cout<<"Second one:";
 	cin>>resp2;
-
+	
+	for(int chi=0;chi<4;chi++){
+		if(resp1==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
+			for(int chj;chj<4;chj++){
+				if(resp2==structStack.name[chj] && structStack.index[chj][0]!=0 && structStack.index[chj][1]!=0){
+					addmatrix(structStack.mat[chi],structStack.mat[chj],
+						structStack.index[chi][0],structStack.index[chi][1],
+						structStack.index[chj][0],structStack.index[chj][1]);
+			}
+		}
+		} else if(chi==3) {
+			cout<<"WARNING: Illegal response;\n";
+			return;
+		}
+	}
+/* Old:
 	if(resp1=='A'){						//This can be fixed using a struct
 		if(resp2=='A'){					//That contains an array of chars and 
 			addmatrix(ma,ma,sia,sja,sia,sja);	//A 3-dimensional array
@@ -245,47 +226,11 @@ void fadd()
 			addmatrix(ma,md,sia,sja,sib,sjb);
 		} else {
 			cout<<"WARNING: Illegal response;\n";
-		}
-	} else if(resp1=='B'){
-		if(resp2=='A'){
-			addmatrix(mb,ma,sib,sjb,sia,sja);
-		} else if(resp2=='B'){
-			addmatrix(mb,mb,sib,sjb,sib,sjb);
-		} else if(resp2=='C'){
-			addmatrix(mb,mc,sib,sjb,sic,sjc);
-		} else if(resp2=='D'){
-			addmatrix(mb,md,sib,sjb,sid,sjd);
-		} else {
-			cout<<"WARNING: Illegal response;\n";
-		}
-	} else if(resp1=='C'){
-		if(resp2=='A'){
-			addmatrix(mc,ma,sic,sjc,sia,sja);
-		} else if(resp2=='B'){
-			addmatrix(mc,mb,sic,sjc,sib,sjb);
-		} else if(resp2=='C'){
-			addmatrix(mc,mc,sic,sjc,sic,sjc);
-		} else if(resp2=='D'){
-			addmatrix(mc,md,sic,sjc,sid,sjd);
-		} else {
-			cout<<"WARNING: Illegal response;\n";
-		}
-	} else if(resp1=='D'){
-		if(resp2=='A'){
-			addmatrix(md,ma,sid,sjd,sia,sja);
-		} else if(resp2=='B'){
-			addmatrix(md,mb,sid,sjd,sib,sjb);
-		} else if(resp2=='C'){
-			addmatrix(md,mc,sid,sjd,sic,sjc);
-		} else if(resp2=='D'){
-			addmatrix(md,md,sid,sjd,sid,sjd);
-		} else {
-			cout<<"WARNING: Illegal response;\n";
-		}
+		} .....
 	} else {
 		cout<<"WARNING: Illegal response;\n";
 		return;
-	}
+	} */
 }
 
 void tracematrix(int mn[20][20],int sin,int sjn)
@@ -308,19 +253,18 @@ void ftrace()
 	
 	char resp=' ';
 	cin>>resp;
+
+	for(int chi=0;chi<4;chi++){
+		if(resp==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
 	
-	if(resp=='A'){
-		tracematrix(ma,sia,sja);
-	} else if(resp=='B'){
-		tracematrix(mb,sib,sjb);
-	} else if(resp=='C'){
-		tracematrix(mc,sic,sjc);
-	} else if(resp=='D'){
-		tracematrix(md,sid,sjd);
-	} else {
-		cout<<"WARNING: Illegal response;\n";
-		return;
-	}
+			tracematrix(structStack.mat[chi],structStack.index[chi][0],structStack.index[chi][1]);
+	
+		} else if(chi==3) {
+			cout<<"WARNING: Illegal response;\n";
+			return;
+		}
+	} return;
+
 	
 
 }
@@ -345,75 +289,43 @@ void multiint()
 	cout<<"Which matrix to use?\n(A/B/C/D): ";
 	cin>>resp2;
 
-	if(resp1=='a'){					//Refer above for fix (237)
-		if(resp2=='A'){
-			intmulti(a,ma,sia,sja);
-			return;
-		} else if(resp2=='B'){
-			intmulti(a,mb,sib,sjb);
-			return;
-		} else if(resp2=='C'){
-			intmulti(a,mc,sic,sjc);
-			return;
-		} else if(resp2=='D'){
-			intmulti(a,md,sid,sjd);
-			return;
-		} else {
-			cout<<"WARNING: Illegal response;\n";
-		}
-	} else if(resp1=='b'){
-		if(resp2=='A'){
-			intmulti(b,ma,sia,sja);
-			return;
-		} else if(resp2=='B'){
-			intmulti(b,mb,sib,sjb);
-			return;
-		} else if(resp2=='C'){
-			intmulti(b,mc,sic,sjc);
-			return;
-		} else if(resp2=='D'){
-			intmulti(b,md,sid,sjd);
-			return;
-		} else {
-			cout<<"WARNING: Illegal response;\n";
-		}
-	} else if(resp1=='c'){
-		if(resp2=='A'){
-			intmulti(c,ma,sia,sja);
-			return;
-		} else if(resp2=='B'){
-			intmulti(c,mb,sib,sjb);
-			return;
-		} else if(resp2=='C'){
-			intmulti(c,mc,sic,sjc);
-			return;
-		} else if(resp2=='D'){
-			intmulti(c,md,sid,sjd);
-			return;
-		} else {
-			cout<<"WARNING: Illegal response;\n";
-		}
-	} else if(resp1=='d'){
-		if(resp2=='A'){
-			intmulti(d,ma,sia,sja);
-			return;
-		} else if(resp2=='B'){
-			intmulti(d,mb,sib,sjb);
-			return;
-		} else if(resp2=='C'){
-			intmulti(d,mc,sic,sjc);
-			return;
-		} else if(resp2=='D'){
-			intmulti(d,md,sid,sjd);
-			return;
-		} else {
-			cout<<"WARNING: Illegal response;\n";
-		}
-	} else {
+	if(resp1=='a'){					//TODO: add an array for int's
+		for(int chi=0;chi<4;chi++){
+			if(resp2==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
+				intmulti(a,structStack.mat[chi],
+					structStack.index[chi][0],structStack.index[chi][1]);
+			} else if(chi==3) {
+				cout<<"WARNING: Illegal response;\n";
+				return;
+	}}} else if(resp1=='b'){					
+		for(int chi=0;chi<4;chi++){
+			if(resp2==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
+				intmulti(b,structStack.mat[chi],
+					structStack.index[chi][0],structStack.index[chi][1]);
+			} else if(chi==3) {
+				cout<<"WARNING: Illegal response;\n";
+				return;
+	}}} else if(resp1=='c'){					
+		for(int chi=0;chi<4;chi++){
+			if(resp2==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
+				intmulti(c,structStack.mat[chi],
+					structStack.index[chi][0],structStack.index[chi][1]);
+			} else if(chi==3) {
+				cout<<"WARNING: Illegal response;\n";
+				return;
+	}}} else if(resp1=='d'){					
+		for(int chi=0;chi<4;chi++){
+			if(resp2==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
+				intmulti(d,structStack.mat[chi],
+					structStack.index[chi][0],structStack.index[chi][1]);
+			} else if(chi==3) {
+				cout<<"WARNING: Illegal response;\n";
+				return;
+			} else {
 		cout<<"WARNING: Illegal response;\n";
-	}
+	}}
 
-}
+}}
 
 void matrixmulti(int mn[20][20],int mm[20][20],int sin,int sjn,int sim,int sjm)
 {
@@ -445,58 +357,19 @@ void multimatrix()
 	cin>>resp1;
 	cout<<"Second one:";
 	cin>>resp2;
-
-	if(resp1=='A'){						//I will fix this later
-		if(resp2=='A'){					//Refer above (237)
-			matrixmulti(ma,ma,sia,sja,sia,sja);	//
-		} else if(resp2=='B'){
-			matrixmulti(ma,mb,sia,sja,sib,sjb);
-		} else if(resp2=='C'){
-			matrixmulti(ma,mc,sia,sja,sic,sjc);
-		} else if(resp2=='D'){
-			matrixmulti(ma,md,sia,sja,sib,sjb);
-		} else {
-			cout<<"WARNING: Illegal response;\n";
+	for(int chi=0;chi<4;chi++){
+		if(resp1==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
+			for(int chj;chj<4;chj++){
+				if(resp2==structStack.name[chj] && structStack.index[chj][0]!=0 && structStack.index[chj][1]!=0){
+					matrixmulti(structStack.mat[chi],structStack.mat[chj],
+						structStack.index[chi][0],structStack.index[chi][1],
+						structStack.index[chj][0],structStack.index[chj][1]);
+			}
 		}
-	} else if(resp1=='B'){
-		if(resp2=='A'){
-			matrixmulti(mb,ma,sib,sjb,sia,sja);
-		} else if(resp2=='B'){
-			matrixmulti(mb,mb,sib,sjb,sib,sjb);
-		} else if(resp2=='C'){
-			matrixmulti(mb,mc,sib,sjb,sic,sjc);
-		} else if(resp2=='D'){
-			matrixmulti(mb,md,sib,sjb,sid,sjd);
-		} else {
+		} else if(chi==3) {
 			cout<<"WARNING: Illegal response;\n";
+			return;
 		}
-	} else if(resp1=='C'){
-		if(resp2=='A'){
-			matrixmulti(mc,ma,sic,sjc,sia,sja);
-		} else if(resp2=='B'){
-			matrixmulti(mc,mb,sic,sjc,sib,sjb);
-		} else if(resp2=='C'){
-			matrixmulti(mc,mc,sic,sjc,sic,sjc);
-		} else if(resp2=='D'){
-			matrixmulti(mc,md,sic,sjc,sid,sjd);
-		} else {
-			cout<<"WARNING: Illegal response;\n";
-		}
-	} else if(resp1=='D'){
-		if(resp2=='A'){
-			matrixmulti(md,ma,sid,sjd,sia,sja);
-		} else if(resp2=='B'){
-			matrixmulti(md,mb,sid,sjd,sib,sjb);
-		} else if(resp2=='C'){
-			matrixmulti(md,mc,sid,sjd,sic,sjc);
-		} else if(resp2=='D'){
-			matrixmulti(md,md,sid,sjd,sid,sjd);
-		} else {
-			cout<<"WARNING: Illegal response;\n";
-		}
-	} else {
-		cout<<"WARNING: Illegal response;\n";
-		return;
 	}
 	
 }
