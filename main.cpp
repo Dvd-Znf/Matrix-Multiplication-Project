@@ -137,19 +137,24 @@ void showmatrix()
 	char resp=' ';
 	cin>>resp;
 	
-	for(int chi=0;chi<4;chi++){
-		if(resp==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
-			for(int i=1;i<=structStack.index[chi][0];i++){
-				for(int j=1;j<=structStack.index[chi][1];j++){
-					cout<<" "<<structStack.mat[chi][i][j];
+
+	if(resp>='A' && resp<='D'){
+		for(int chi=0;chi<4;chi++){
+			if(resp==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
+				for(int i=1;i<=structStack.index[chi][0];i++){
+					for(int j=1;j<=structStack.index[chi][1];j++){
+						cout<<" "<<structStack.mat[chi][i][j];
+					}
+					cout<<"\n";
 				}
-				cout<<"\n";
-		}
-		} else if(chi==3) {
-			cout<<"WARNING: Illegal response;\n";
-			return;
-		}
-	} return;
+			}
+		}return;
+		} else {
+		cout<<"WARNING: Illegal response;\n";
+	}
+	
+
+	
 	
 	
 
