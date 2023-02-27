@@ -9,15 +9,12 @@ Addition - show the sum of two matrices
 Trace - show the trace of a matrix  
 Multiplication - multiply a matrix by an integer or by another matrix  
 ## Known issues:
-Bug in matrix multiplication  
-~~Bug in CLI interface after a function is called~~    
-~~32 unnecesary if condition instead of a struct containing an array of names and a 3d array of values~~  
+Bug in matrix multiplication    
 Putting the int's in an array  
 Bug when trying to detect "Illegal actions"   
 ## To be added:
-~~Help switch~~  
 Verbose mode/switch  
-~~Improve human readability~~  
+Colorfull warnig messages
 Fixing bugs mentioned above  
 ## How to install
 ### Dependecies:
