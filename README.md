@@ -14,7 +14,7 @@ Putting the int's in an array
 Bug when trying to detect "Illegal actions"   
 ## To be added:
 Verbose mode/switch  
-Colorfull warnig messages
+Colorfull warning messages
 Fixing bugs mentioned above  
 ## How to install
 ### Dependecies:
