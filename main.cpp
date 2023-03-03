@@ -14,21 +14,6 @@ struct {
 } structStack;
 
 
-//Old implementation:
-/*
-int ma[20][20],
-    mb[20][20],				//Thses are the 'multi dimensional' array's
-    mc[20][20],				//Feel free to change the max dimension
-    md[20][20];				//But if you do 
-		        		//be carefull with memory utilisation
-				        //These can hold up to 1600 variables!!!
-
-int sia=0,sja=0,
-    sib=0,sjb=0,			//These are global indexes for the matrices		
-    sic=0,sjc=0,			//Their value is extremely important
-    sid=0,sjd=0;			//I wouldn't recommend changing the default
-*/
-
 void newmatrix()
 {
 	int i,j;
@@ -219,23 +204,7 @@ void fadd()
 			return;
 		}
 	}
-/* Old:
-	if(resp1=='A'){						//This can be fixed using a struct
-		if(resp2=='A'){					//That contains an array of chars and 
-			addmatrix(ma,ma,sia,sja,sia,sja);	//A 3-dimensional array
-		} else if(resp2=='B'){				//Ex with pseudo-code.:
-			addmatrix(ma,mb,sia,sja,sib,sjb);	//mat.name[1,2,3,4]='A','B','C','D';
-		} else if(resp2=='C'){				//mat.value[i][...][...]= [ma],[mb],[mc],[md];
-			addmatrix(ma,mc,sia,sja,sic,sjc);	//I will do this later...
-		} else if(resp2=='D'){
-			addmatrix(ma,md,sia,sja,sib,sjb);
-		} else {
-			cout<<"WARNING: Illegal response;\n";
-		} .....
-	} else {
-		cout<<"WARNING: Illegal response;\n";
-		return;
-	} */
+
 }
 
 void tracematrix(int mn[20][20],int sin,int sjn)
