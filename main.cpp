@@ -406,7 +406,7 @@ int main(int argc, char* argv[])
 	cout<<">>> ";
 	cin.getline(sh,255);
 
-	if(string(sh)=="exit"){
+	if(string(sh)=="exit"){				//TODO: Make struct for possible commands and functions
 		cout<<"Recieved exit command\n";
 		return 0;
 	} else if(string(sh)=="clear"){
