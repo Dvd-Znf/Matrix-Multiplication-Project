@@ -190,19 +190,20 @@ void fadd()
 	cout<<"Second one:";
 	cin>>resp2;
 	
-	for(int chi=0;chi<4;chi++){
-		if(resp1==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
-			for(int chj;chj<4;chj++){
-				if(resp2==structStack.name[chj] && structStack.index[chj][0]!=0 && structStack.index[chj][1]!=0){
-					addmatrix(structStack.mat[chi],structStack.mat[chj],
-						structStack.index[chi][0],structStack.index[chi][1],
-						structStack.index[chj][0],structStack.index[chj][1]);
+	if(resp1>='A' && resp1<='D' && resp2>='A' && resp2<='D'){
+		for(int chi=0;chi<4;chi++){
+			if(resp1==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
+				for(int chj=0;chj<4;chj++){
+					if(resp2==structStack.name[chj] && structStack.index[chj][0]!=0 && structStack.index[chj][1]!=0){
+						addmatrix(structStack.mat[chi],structStack.mat[chj],
+							structStack.index[chi][0],structStack.index[chi][1],
+							structStack.index[chj][0],structStack.index[chj][1]);
+				}
 			}
-		}
-		} else if(chi==3) {
-			cout<<"WARNING: Illegal response;\n";
-			return;
-		}
+
+	}} return;
+	} else {
+		cout<<"WARNING: Illegal response;\n";
 	}
 
 }
