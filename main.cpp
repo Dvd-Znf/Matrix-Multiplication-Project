@@ -229,16 +229,18 @@ void ftrace()
 	char resp=' ';
 	cin>>resp;
 
-	for(int chi=0;chi<4;chi++){
-		if(resp==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
+	if(resp>='A' && resp<='D'){
+		for(int chi=0;chi<4;chi++){
+			if(resp==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
+				
+				tracematrix(structStack.mat[chi],structStack.index[chi][0],structStack.index[chi][1]);
+
+			} 
+		}return;
+	} else {
+		cout<<"WARNING: Illegal response;\n";
+	}
 	
-			tracematrix(structStack.mat[chi],structStack.index[chi][0],structStack.index[chi][1]);
-	
-		} else if(chi==3) {
-			cout<<"WARNING: Illegal response;\n";
-			return;
-		}
-	} return;
 
 	
 
