@@ -12,7 +12,7 @@ Multiplication - multiply a matrix by an integer or by another matrix
 Add a struct with function pointers for command detection    
 Bug in matrix multiplication    
 Putting the int's in an array  
-Bug when trying to detect "Illegal actions"   
+~~Bug when trying to detect "Illegal actions"~~   
 ## To be added:
 Verbose mode/switch  
 Colorfull warning messages  
