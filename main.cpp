@@ -3,10 +3,8 @@
 #include<string.h>
 using namespace std;
 
-int a=0,b=0,c=0,d=0;			//These are the int's
 
-//New fix for deleting the 32 if conditions:
-
+int intArr[4] = {0,0,0,0};			
 struct {
 	char name[4] = {'A','B','C','D'};
 	int mat[4][20][20];
@@ -59,22 +57,20 @@ void newint()
 {
 	cout<<"You are about to asign a new value for a new integer\n";
 	cout<<"Please asign a value: ";
-	if(a==0){
-		cin>>a;
-		cout<<"You asigned the value "<<a<<" to the 'a' variable\n";
-	} else if(b==0){
-		cin>>b;
-		cout<<"You asigned the value "<<b<<" to the 'b' variable\n";
-	} else if(c==0){
-		cin>>c;
-		cout<<"You asigned the value "<<c<<" to the 'c' variable\n";
-	} else if(d==0){
-		cin>>d;
-		cout<<"You asigned the value "<<d<<" to the 'd' variable\n";
-	} else {
-	       cout<<"WARNING: All available int's already hold value;\n";
-           return;
-	}	       
+
+	for(int i=0;i<4;i++){
+		if(intArr[i] == 0){
+			cin>>intArr[i];
+			cout<<"You asigned the value "
+				<<intArr[i]
+				<<" to the '"
+				<<char(structStack.name[i]+32)
+				<<"' variable\n";
+				return;
+		}
+	}
+	cout<<"WARNING: All available int's already hold value;\n";
+	return;
 }
 
 void fnew() 
@@ -97,23 +93,22 @@ void showint()
     cout<<"Which one?(a,b,c,d)";
     char resp=' ';
     cin>>resp;
-    if(resp=='a'){
-        cout<<"a="<<a<<";\n";
-        return;
-    } else if(resp=='b'){
-        cout<<"b="<<b<<";\n";
-        return;
-    } else if(resp=='c'){
-        cout<<"c="<<c<<";\n";
-        return;
-    } else if(resp=='d'){
-        cout<<"d="<<d<<";\n";
-        return;
-    } else {
-        cout<<"WARNING: Illegal response;\n";
-        return;
-    }
 
+	if(resp>='a' && resp<='d'){
+		for(int i=0;i<4;i++){
+			if(structStack.name[i]+32 == resp){
+				cout<<char(structStack.name[i]+32)
+					<<"="
+					<<intArr[i]
+					<<";\n";
+					return;
+			}
+		}
+	} else {
+		cout<<"WARNING: Illegal response;\n";
+		return;
+	}
+	
 }
 
 void showmatrix()
@@ -138,11 +133,6 @@ void showmatrix()
 		cout<<"WARNING: Illegal response;\n";
 	}
 	
-
-	
-	
-	
-
 }
 
 
@@ -266,43 +256,28 @@ void multiint()
 	cout<<"Which matrix to use?\n(A/B/C/D): ";
 	cin>>resp2;
 
-	if(resp1=='a'){					//TODO: add an array for int's
-		for(int chi=0;chi<4;chi++){
-			if(resp2==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
-				intmulti(a,structStack.mat[chi],
-					structStack.index[chi][0],structStack.index[chi][1]);
-			} else if(chi==3) {
-				cout<<"WARNING: Illegal response;\n";
-				return;
-	}}} else if(resp1=='b'){					
-		for(int chi=0;chi<4;chi++){
-			if(resp2==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
-				intmulti(b,structStack.mat[chi],
-					structStack.index[chi][0],structStack.index[chi][1]);
-			} else if(chi==3) {
-				cout<<"WARNING: Illegal response;\n";
-				return;
-	}}} else if(resp1=='c'){					
-		for(int chi=0;chi<4;chi++){
-			if(resp2==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
-				intmulti(c,structStack.mat[chi],
-					structStack.index[chi][0],structStack.index[chi][1]);
-			} else if(chi==3) {
-				cout<<"WARNING: Illegal response;\n";
-				return;
-	}}} else if(resp1=='d'){					
-		for(int chi=0;chi<4;chi++){
-			if(resp2==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
-				intmulti(d,structStack.mat[chi],
-					structStack.index[chi][0],structStack.index[chi][1]);
-			} else if(chi==3) {
-				cout<<"WARNING: Illegal response;\n";
-				return;
-			} else {
-		cout<<"WARNING: Illegal response;\n";
-	}}
 
-}}
+	if(resp1>='a' && resp1<='d'){
+		for(int i=0;i<4;i++){
+			if(structStack.name[i]+32 == resp1){
+				for(int chi=0;chi<4;chi++){
+				if(resp2==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
+					intmulti(intArr[i],structStack.mat[chi],
+						structStack.index[chi][0],structStack.index[chi][1]);
+					return;
+				} else if(chi==3) {
+					cout<<"WARNING: Illegal response;\n";
+					return;
+				}
+				}
+			}		
+		}
+	} else {
+		cout<<"WARNING: Illegal response;\n";
+		return;
+	}
+
+}
 
 void matrixmulti(int mn[20][20],int mm[20][20],int sin,int sjn,int sim,int sjm)
 {

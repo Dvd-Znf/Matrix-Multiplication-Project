@@ -11,8 +11,9 @@ Multiplication - multiply a matrix by an integer or by another matrix
 ## Known issues:
 Add a struct with function pointers for command detection    
 Bug in matrix multiplication    
-Putting the int's in an array  
-~~Bug when trying to detect "Illegal actions"~~   
+~~ Putting the int's in an array ~~   
+Putting the new int array inside the structStack  
+~~ Bug when trying to detect "Illegal actions" ~~   
 ## To be added:
 Verbose mode/switch  
 Colorfull warning messages  
