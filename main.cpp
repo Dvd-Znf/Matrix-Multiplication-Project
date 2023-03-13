@@ -362,6 +362,37 @@ static char inhelpstr[] = "\n"
 			  "exit clear help new show addition multiplication trace\n"
 			  "\n";	  
 
+void fexit() {
+	cout<<"Recieved exit command\n";
+	exit(EXIT_SUCCESS);
+}
+
+void fclear() {
+	system("clear");
+}
+
+void fhelp() {
+	cout<<inhelpstr;
+}
+
+struct {
+	const char* names[8] = {"exit",
+							"clear",
+							"help",
+							"new",
+							"show",
+							"addition",
+							"multiplication",
+							"trace"};
+	void (*functions [8])() = {fexit,
+								fclear,
+								fhelp,
+								fnew,
+								fshow,
+								fadd,
+								fmulti,
+								ftrace};
+} cliStack;
 
 int main(int argc, char* argv[])
 {
@@ -384,40 +415,16 @@ int main(int argc, char* argv[])
 	cout<<">>> ";
 	cin.getline(sh,255);
 
-	if(string(sh)=="exit"){				//TODO: Make struct for possible commands and functions
-		cout<<"Recieved exit command\n";
-		return 0;
-	} else if(string(sh)=="clear"){
-		system(sh);
-		sh[0]='\0';
-	} else if(string(sh)=="help"){
-		cout<<inhelpstr;
-		sh[0]='\0';
-	} else if(string(sh)=="new"){
-		fnew();
-		sh[0]='\0';
-		cin.ignore(255,'\n');
-	} else if(string(sh)=="show"){
-		fshow();
-		sh[0]='\0';
-		cin.ignore(255,'\n');
-	} else if(string(sh)=="addition"){
-		fadd();
-		sh[0]='\0';
-		cin.ignore(255,'\n');
-	} else if(string(sh)=="multiplication"){
-		fmulti();
-		sh[0]='\0';
-		cin.ignore(255,'\n');
-	} else if(string(sh)=="trace"){
-		ftrace();
-		sh[0]='\0';
-		cin.ignore(255,'\n');
-	} 
-	
-	if(sh[0]!='\0') {
-		cout<<sh<<" is not a recognized as a internal or external command\n Please use (help) for a list of available commands\n";
+	for(int i=0;i<8;i++){
+		if(string(cliStack.names[i]) == string(sh)){
+			(*cliStack.functions[i])();
+			sh[0]='\0';
+			cin.ignore(255,'\n');
+		}
 	}
-
+	if(sh[0]!='\0') {
+		cout<<sh<<" is not a recognized as a internal or external command\n" 
+				<<"Please use (help) for a list of available commands\n";
+	}
 }
 }

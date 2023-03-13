@@ -9,7 +9,7 @@ Addition - show the sum of two matrices
 Trace - show the trace of a matrix  
 Multiplication - multiply a matrix by an integer or by another matrix  
 ## Known issues:
-Add a struct with function pointers for command detection    
+~~Add a struct with function pointers for command detection~~    
 Bug in matrix multiplication    
 ~~Putting the int's in an array~~   
 Putting the new int array inside the structStack  
