@@ -11,7 +11,7 @@ Multiplication - multiply a matrix by an integer or by another matrix
 ## Known issues:
 Bug in matrix multiplication       
 ## To be added:
-Abreviations to CLI    
+Integration with readline library    
 Verbose mode/switch  
 Colorfull warning messages  
 Fixing bugs mentioned above  
