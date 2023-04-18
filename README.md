@@ -10,6 +10,7 @@ Trace - show the trace of a matrix
 Multiplication - multiply a matrix by an integer or by another matrix  
 ## Known issues:
 Bug in matrix multiplication       
+Bug that will be fixed after adding readline    
 ## To be added:
 Integration with readline library    
 Verbose mode/switch  
@@ -17,28 +18,25 @@ Colorfull warning messages
 Fixing bugs mentioned above  
 ## How to install
 ### Dependecies:
-- figlet (For bling bling)  
-- lolcat (A cool lookin app is better then a working app)  
+- figlet   
+- lolcat
+- cmake (build)   
 You can install these from your package manager  
-Ex:
-```  
-$ sudo apt install figlet lolcat  
-$ sudo pacman -S figlet lolcat  
+Ex:  
+```console  
+# apt install figlet lolcat cmake  
+# pacman -S figlet lolcat cmake  
 ```
 etc..  
 ### Build and install from source:
-Requires gcc and gnu make  
+Requires gcc and cmake  
   
 Build and install:  
+```console   
+$ git clone https://github.com/Dvd-Znf/Matrix-Multiplication-Project.git
+$ mkdir Matrix-Multiplication-Project/build && cd Matrix-Multiplication-Project/build
+$ cmake ..
+# make install
 ```
-$ sudo make install
-```
-Uninstall:  
-```
-$ sudo make uninstall
-```
-Remove binary from working dir:
-```
-$ sudo make clean
-```
+
 ## Thank you for reading my project <3
