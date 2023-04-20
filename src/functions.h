@@ -2,7 +2,7 @@
 using namespace std;
 static char inhelpstr[] = "\n"
 			"Showing help:\n"
-			"CLI inspired by python\n"
+			"CLI is using readline!\n"
 		  	"This is list of all posible command options:\n"
 			"exit clear help new show addition multiplication trace\n"
 			"\n";	

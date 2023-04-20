@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
 project(Matrix-Multiplication-Project CXX)
 add_executable(mmp src/main.cpp)
+target_link_libraries(mmp readline)
 install(TARGETS mmp DESTINATION bin)

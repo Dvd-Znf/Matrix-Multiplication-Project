@@ -1,6 +1,8 @@
 #include<iostream>
 #include<fstream>
 #include<string.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 
 #include"functions.h"
 #include"stacks.h"
@@ -22,12 +24,7 @@ static char helpstr[] = "\n"
 			"	mmp			Launch the mmp program\n"
 			"\n";
 
-// static char inhelpstr[] = "\n"
-// 			"Showing help:\n"
-// 			"CLI inspired by python\n"
-// 		  	"This is list of all posible command options:\n"
-// 			"exit clear help new show addition multiplication trace\n"
-// 			"\n";	  
+  
 
 
 int main(int argc, char* argv[])
@@ -45,22 +42,31 @@ int main(int argc, char* argv[])
 
 	system("echo 'Matrix_ Multiplication_ Project_' | figlet | lolcat");
 	system("echo 'By Dvd-Znf' | lolcat");
-	char sh[255];
+
+	rl_bind_key('\t', rl_complete);
+	using_history();
 
 	while(true){
-	cout<<">>> ";
-	cin.getline(sh,255);
+	char* input = readline("mmp>>> ");
+
+	if (!input){
+		break;
+	} 
+	if (string(input)!="\0"){
+		add_history(input);
+	}
 
 	for(int i=0;i<8;i++){
-		if(string(cliStack.names[i]) == string(sh)){
+		if(string(cliStack.names[i]) == string(input)){
 			(*cliStack.functions[i])();
-			sh[0]='\0';
-			cin.ignore(255,'\n');
+			input[0]='\0';
 		}
 	}
-	if(sh[0]!='\0') {
-		cout<<sh<<" is not a recognized as a internal or external command\n" 
+	if(input[0]!='\0') {
+		cout<<input<<" is not a recognized as a internal or external command\n" 
 				<<"Please use (help) for a list of available commands\n";
 	}
+	free(input);
 }
+	return 0;
 }

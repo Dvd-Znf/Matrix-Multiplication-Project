@@ -10,16 +10,18 @@ Trace - show the trace of a matrix
 Multiplication - multiply a matrix by an integer or by another matrix  
 ## Known issues:
 Bug in matrix multiplication       
-Bug that will be fixed after adding readline    
+~~Bug that will be fixed after adding readline~~    
 ## To be added:
-Integration with readline library    
+~~Integration with readline library~~    
+Add auto-tab completion to readline    
 Verbose mode/switch  
 Colorfull warning messages  
 Fixing bugs mentioned above  
 ## How to install
 ### Dependecies:
+- readline (library probably already included, if you use bash)    
 - figlet   
-- lolcat
+- lolcat   
 - cmake (build)   
 You can install these from your package manager  
 Ex:  
