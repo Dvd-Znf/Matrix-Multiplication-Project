@@ -1,6 +1,12 @@
 # The Matrix Multiplication Project
 Multiplication, Addition and Tracing of matrices of your chosing  
 ![Screenshot](/Screenshot.png)  
+## About:
+mmp is a simple yet _cool_ CLI program that allows you to do cool stuf with matrices, for your math class or whatever else   
+It can be invoked from the terminal by using  `$ mmp`    
+It's made in C++ and it features the readline library for it's CLI interface, this means:   
+You can view history by moving up and down with the arrow keys      
+And you can press TAB for autocompletion just like in bash!    
 ## Posible function:
 Help - show posible commands  
 New - register a new value for an integer or matrix  
@@ -11,8 +17,9 @@ Multiplication - multiply a matrix by an integer or by another matrix
 ## Known issues:
 Bug in matrix multiplication       
 ## To be added:
-Add auto-tab completion to readline    
-Verbose mode/switch  
+~~Add auto-tab completion to readline~~     
+Verbose mode/switch     
+Non-interactive mode, which should be compatible with the Unix pipeline    
 Colorfull warning messages  
 Fixing bugs mentioned above  
 ## How to install

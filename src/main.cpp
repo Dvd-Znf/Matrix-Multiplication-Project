@@ -1,15 +1,16 @@
 #include<iostream>
 #include<fstream>
 #include<string.h>
-#include <readline/readline.h>
-#include <readline/history.h>
+#include<readline/readline.h>
+#include<readline/history.h>
 
 #include"functions.h"
 #include"stacks.h"
 
 using namespace std;
 
-
+char** character_name_completion(const char *, int, int);
+char* character_name_generator(const char *, int);
 
 static char helpstr[] = "\n"
 			"Usage: mmp <command>\n"
@@ -24,7 +25,41 @@ static char helpstr[] = "\n"
 			"	mmp			Launch the mmp program\n"
 			"\n";
 
-  
+char* function_names[] = {
+	"exit",
+	"clear",
+	"help",
+	"new",
+	"show",
+	"addition",
+	"multiplication",
+	"trace",
+	NULL
+};
+
+char** character_name_completion(const char *text, int start, int end){
+    rl_attempted_completion_over = 1;
+    return rl_completion_matches(text, character_name_generator);
+}
+
+
+char* character_name_generator(const char *text, int state){
+    static int list_index, len;
+    char *name;
+
+    if (!state) {
+        list_index = 0;
+        len = strlen(text);
+    }
+
+    while ((name = function_names[list_index++])) {
+        if (strncmp(name, text, len) == 0) {
+            return strdup(name);
+        }
+    }
+
+    return NULL;
+}
 
 
 int main(int argc, char* argv[])
@@ -45,6 +80,8 @@ int main(int argc, char* argv[])
 
 	rl_bind_key('\t', rl_complete);
 	using_history();
+	rl_attempted_completion_function = character_name_completion;
+	//rl_completion_suppress_append = 1;
 
 	while(true){
 	char* input = readline("mmp>>> ");
@@ -57,7 +94,8 @@ int main(int argc, char* argv[])
 	}
 
 	for(int i=0;i<8;i++){
-		if(string(cliStack.names[i]) == string(input)){
+		//if(string(cliStack.names[i]) == string(input)){
+		if(string(input).find(string(cliStack.names[i])) != string::npos){
 			(*cliStack.functions[i])();
 			input[0]='\0';
 		}
