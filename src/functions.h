@@ -20,7 +20,7 @@ void newmatrix()
 			        //etc...
 
 	if(countm==4) {
-		cout<<"WARNING: All available matrices already hold value;";
+		cout<<"\e[91mWARNING:\e[0m All available matrices already hold value;";
 		return;
 	}
 
@@ -32,7 +32,7 @@ void newmatrix()
 	cin>>j;
 
 	if(i>19 || j>19){
-		cout<<"WARNING: Illegal dimensions;";
+		cout<<"\e[91mWARNING:\e[0m Illegal dimensions;";
 		return;
 	}
 	
@@ -68,7 +68,7 @@ void newint()
 				return;
 		}
 	}
-	cout<<"WARNING: All available int's already hold value;\n";
+	cout<<"\e[91mWARNING:\e[0m All available int's already hold value;\n";
 	return;
 }
 
@@ -82,7 +82,7 @@ void fnew()
 	} else if(resp==2) {
 		newmatrix();
 	} else {
-		cout<<"WARNING: Illegal response;\n";
+		cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
 	}
 	
 }
@@ -104,7 +104,7 @@ void showint()
 			}
 		}
 	} else {
-		cout<<"WARNING: Illegal response;\n";
+		cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
 		return;
 	}
 	
@@ -129,7 +129,7 @@ void showmatrix()
 			}
 		}return;
 		} else {
-		cout<<"WARNING: Illegal response;\n";
+		cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
 	}
 	
 }
@@ -145,7 +145,7 @@ void fshow()
     } else if(resp==2) {
         showmatrix();
     } else {
-        cout<<"WARNING: Illegal response;\n";
+        cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
     }
 
 
@@ -154,7 +154,7 @@ void fshow()
 void addmatrix(int mn[20][20],int mm[20][20],int sin,int sjn,int sim,int sjm)
 {
 	if(sin!=sim || sjn!=sjm){
-		cout<<"WARNING: Illegal action;\n";
+		cout<<"\e[91mWARNING:\e[0m Illegal action;\n";
 		return;
 	} else {
 		for(int i=1;i<=sin;i++){
@@ -192,7 +192,7 @@ void fadd()
 
 	}} return;
 	} else {
-		cout<<"WARNING: Illegal response;\n";
+		cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
 	}
 
 }
@@ -227,7 +227,7 @@ void ftrace()
 			} 
 		}return;
 	} else {
-		cout<<"WARNING: Illegal response;\n";
+		cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
 	}
 	
 
@@ -265,14 +265,14 @@ void multiint()
 						structStack.index[chi][0],structStack.index[chi][1]);
 					return;
 				} else if(chi==3) {
-					cout<<"WARNING: Illegal response;\n";
+					cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
 					return;
 				}
 				}
 			}		
 		}
 	} else {
-		cout<<"WARNING: Illegal response;\n";
+		cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
 		return;
 	}
 
@@ -281,7 +281,7 @@ void multiint()
 void matrixmulti(int mn[20][20],int mm[20][20],int sin,int sjn,int sim,int sjm)
 {
 	if(sin!=sjm){
-		cout<<"WARNING: Illegal action;";
+		cout<<"\e[91mWARNING:\e[0m Illegal action;";
 		return;
 	}
 
@@ -320,7 +320,7 @@ void multimatrix()
 				}
 		}} return;
 		} else {
-			cout<<"WARNING: Illegal response;\n";
+			cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
 		}
 	
 }
@@ -335,7 +335,7 @@ void fmulti()
 	} else if(resp==2) {
 		multimatrix();
 	} else {
-		cout<<"WARNING: Illegal response;\n";
+		cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
 	}
 
 }

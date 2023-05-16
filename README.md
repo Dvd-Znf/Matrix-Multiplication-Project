@@ -20,7 +20,8 @@ Bug in matrix multiplication
 ~~Add auto-tab completion to readline~~     
 Verbose mode/switch     
 Non-interactive mode, which should be compatible with the Unix pipeline    
-Colorfull warning messages  
+~~Colorfull warning messages~~    
+Variable for warning message     
 Fixing bugs mentioned above  
 ## How to install
 ### Dependecies:
