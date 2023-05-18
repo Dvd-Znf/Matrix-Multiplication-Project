@@ -20,7 +20,7 @@ void newmatrix()
 			        //etc...
 
 	if(countm==4) {
-		cout<<"\e[91mWARNING:\e[0m All available matrices already hold value;";
+		cout<<"\e[91mWARNING:\e[0m All available matrices already hold value;\n";
 		return;
 	}
 
@@ -32,7 +32,7 @@ void newmatrix()
 	cin>>j;
 
 	if(i>19 || j>19){
-		cout<<"\e[91mWARNING:\e[0m Illegal dimensions;";
+		cout<<"\e[91mWARNING:\e[0m Illegal dimensions;\n";
 		return;
 	}
 	
@@ -281,7 +281,7 @@ void multiint()
 void matrixmulti(int mn[20][20],int mm[20][20],int sin,int sjn,int sim,int sjm)
 {
 	if(sin!=sjm){
-		cout<<"\e[91mWARNING:\e[0m Illegal action;";
+		cout<<"\e[91mWARNING:\e[0m Illegal action;\n";
 		return;
 	}
 
