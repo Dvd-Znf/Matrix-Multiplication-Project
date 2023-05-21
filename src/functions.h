@@ -10,6 +10,7 @@ static char inhelpstr[] = "\n"
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
+char *WARNING_RESPONSE="\e[91mWARNING:\e[0m Illegal response;\n";
 
 void newmatrix()
 {
@@ -82,7 +83,7 @@ void fnew()
 	} else if(resp==2) {
 		newmatrix();
 	} else {
-		cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
+		cout<<WARNING_RESPONSE;
 	}
 	
 }
@@ -104,7 +105,7 @@ void showint()
 			}
 		}
 	} else {
-		cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
+		cout<<WARNING_RESPONSE;
 		return;
 	}
 	
@@ -129,7 +130,7 @@ void showmatrix()
 			}
 		}return;
 		} else {
-		cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
+		cout<<WARNING_RESPONSE;
 	}
 	
 }
@@ -145,7 +146,7 @@ void fshow()
     } else if(resp==2) {
         showmatrix();
     } else {
-        cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
+        cout<<WARNING_RESPONSE;
     }
 
 
@@ -192,7 +193,7 @@ void fadd()
 
 	}} return;
 	} else {
-		cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
+		cout<<WARNING_RESPONSE;
 	}
 
 }
@@ -227,7 +228,7 @@ void ftrace()
 			} 
 		}return;
 	} else {
-		cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
+		cout<<WARNING_RESPONSE;
 	}
 	
 
@@ -265,14 +266,14 @@ void multiint()
 						structStack.index[chi][0],structStack.index[chi][1]);
 					return;
 				} else if(chi==3) {
-					cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
+					cout<<WARNING_RESPONSE;
 					return;
 				}
 				}
 			}		
 		}
 	} else {
-		cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
+		cout<<WARNING_RESPONSE;
 		return;
 	}
 
@@ -320,7 +321,7 @@ void multimatrix()
 				}
 		}} return;
 		} else {
-			cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
+			cout<<WARNING_RESPONSE;
 		}
 	
 }
@@ -335,7 +336,7 @@ void fmulti()
 	} else if(resp==2) {
 		multimatrix();
 	} else {
-		cout<<"\e[91mWARNING:\e[0m Illegal response;\n";
+		cout<<WARNING_RESPONSE;
 	}
 
 }

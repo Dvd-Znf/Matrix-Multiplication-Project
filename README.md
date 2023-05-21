@@ -21,7 +21,7 @@ Bug in matrix multiplication
 Verbose mode/switch     
 Non-interactive mode, which should be compatible with the Unix pipeline    
 ~~Colorfull warning messages~~    
-Variable for warning message     
+~~Variable for warning message~~     
 Fixing bugs mentioned above  
 ## How to install
 ### Dependecies:
