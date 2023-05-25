@@ -17,11 +17,8 @@ Multiplication - multiply a matrix by an integer or by another matrix
 ## Known issues:
 Bug in matrix multiplication       
 ## To be added:
-~~Add auto-tab completion to readline~~     
 Verbose mode/switch     
 Non-interactive mode, which should be compatible with the Unix pipeline    
-~~Colorfull warning messages~~    
-~~Variable for warning message~~     
 Fixing bugs mentioned above  
 ## How to install
 ### Dependecies:
