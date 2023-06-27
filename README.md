@@ -17,6 +17,7 @@ Multiplication - multiply a matrix by an integer or by another matrix
 ## Known issues:
 Bug in matrix multiplication       
 ## To be added:
+Add software versioning    
 Verbose mode/switch     
 Non-interactive mode, which should be compatible with the Unix pipeline    
 Fixing bugs mentioned above  
