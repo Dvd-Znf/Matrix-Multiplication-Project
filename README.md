@@ -2,7 +2,7 @@
 Multiplication, Addition and Tracing of matrices of your chosing  
 ![Screenshot](/Screenshot.png)  
 ## About:
-mmp is a simple yet _cool_ CLI program that allows you to do cool stuf with matrices, for your math class or whatever else   
+mmp is a simple yet _cool_ CLI program that allows you to do _cool_ stuf with matrices, for your math class or whatever else   
 It can be invoked from the terminal by using  `$ mmp`    
 It's made in C++ and it features the readline library for it's CLI interface, this means:   
 You can view history by moving up and down with the arrow keys      
