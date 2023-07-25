@@ -14,8 +14,6 @@ Show - show a integer or a matrix
 Addition - show the sum of two matrices  
 Trace - show the trace of a matrix  
 Multiplication - multiply a matrix by an integer or by another matrix  
-## Known issues:
-Bug in rectangular matrix multiplication       
 ## To be added:
 Add software versioning    
 Add signal interupt handling     

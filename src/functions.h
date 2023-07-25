@@ -289,8 +289,8 @@ void matrixmulti(int mn[20][20],int mm[20][20],int sin,int sjn,int sim,int sjm)
 	int tmp=0;
 
 	for(int i=1;i<=sin;i++){
-		for(int ji=1;ji<=sim;ji++){
-			for(int j=1;j<=sjn;j++){
+		for(int ji=1;ji<=sjm;ji++){
+			for(int j=1;j<=sim;j++){
 				tmp=tmp+mn[i][j]*mm[j][ji];
 			}
 			cout<<" "<<tmp;
