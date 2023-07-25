@@ -19,7 +19,8 @@ static char helpstr[] = "\n"
 			"You can use the inner help function within mmp for more details\n"
 			"\n"
 			"Posible command options:\n"
-			"		-h | --help : Display this message\n"
+			"		-h | --help	   : Display this message\n"
+			"		-v | --version : Print version and exit\n"
 			"\n"
 			"Examples:\n"
 			"	mmp			Launch the mmp program\n"
@@ -69,7 +70,10 @@ int main(int argc, char* argv[])
 		if(string(argv[i]) == "-h" || string(argv[i]) == "--help"){
 				cout<<helpstr;
 				return 0;
-		} else {
+		} else if(string(argv[i]) == "-v" || string(argv[i]) == "--version") {
+            cout<<"mmp version: v0.1.0\n"; 
+            return 0;
+        } else {
 			cout<<argv[i]<<" unknown command\n";
 			return 0;
 		}
