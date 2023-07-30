@@ -355,7 +355,7 @@ void fhelp() {
 }
 
 void fversion(){
-	cout<<"mmp version: v0.1.0\n";
+	cout<<"mmp version: v0.2.0\n";
 }
 
 #endif
