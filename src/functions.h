@@ -354,4 +354,8 @@ void fhelp() {
 	cout<<inhelpstr;
 }
 
+void fversion(){
+	cout<<"mmp version: v0.1.0\n";
+}
+
 #endif

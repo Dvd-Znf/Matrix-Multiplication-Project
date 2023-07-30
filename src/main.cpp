@@ -35,6 +35,7 @@ char* function_names[] = {
 	"addition",
 	"multiplication",
 	"trace",
+	"version",
 	NULL
 };
 
@@ -71,7 +72,7 @@ int main(int argc, char* argv[])
 				cout<<helpstr;
 				return 0;
 		} else if(string(argv[i]) == "-v" || string(argv[i]) == "--version") {
-            cout<<"mmp version: v0.1.0\n"; 
+            fversion(); 
             return 0;
         } else {
 			cout<<argv[i]<<" unknown command\n";
@@ -97,7 +98,7 @@ int main(int argc, char* argv[])
 		add_history(input);
 	}
 
-	for(int i=0;i<8;i++){
+	for(int i=0;i<9;i++){
 		//if(string(cliStack.names[i]) == string(input)){
 		if(string(input).find(string(cliStack.names[i])) != string::npos){
 			(*cliStack.functions[i])();

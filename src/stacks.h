@@ -6,6 +6,7 @@ void fshow();
 void fadd();
 void fmulti();
 void ftrace();
+void fversion();
 
 
 #ifndef STACKS_H
@@ -19,22 +20,24 @@ struct {
 } structStack;
 
 struct {
-	const char* names[8] = {"exit",
+	const char* names[9] = {"exit",
 							"clear",
 							"help",
 							"new",
 							"show",
 							"addition",
 							"multiplication",
-							"trace"};
-	void (*functions [8])() = {fexit,
+							"trace",
+							"version"};
+	void (*functions [9])() = {fexit,
 								fclear,
 								fhelp,
 								fnew,
 								fshow,
 								fadd,
 								fmulti,
-								ftrace};
+								ftrace,
+								fversion};
 } cliStack;
 
 
