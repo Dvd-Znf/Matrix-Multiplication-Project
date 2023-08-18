@@ -9,7 +9,7 @@ You can view history by moving up and down with the arrow keys
 And you can press TAB for autocompletion just like in bash!    
 ## Posible function:
 Help - show posible commands  
-Version - show curent installed version  
+Version - show current installed version  
 New - register a new value for an integer or matrix  
 Show - show a integer or a matrix  
 Addition - show the sum of two matrices  
