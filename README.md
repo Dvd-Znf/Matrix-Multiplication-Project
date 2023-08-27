@@ -16,9 +16,9 @@ Addition - show the sum of two matrices
 Trace - show the trace of a matrix  
 Multiplication - multiply a matrix by an integer or by another matrix  
 ## To be added:
-Add signal interupt handling     
-Verbose mode/switch     
-Non-interactive mode, which should be compatible with the Unix pipeline    
+- [ ] Add signal interupt handling     
+- [ ] Verbose mode/switch     
+- [ ] Non-interactive mode, which should be compatible with the Unix pipeline    
 ## How to install
 ### Dependecies:
 - readline (library probably already included, if you use bash)    
