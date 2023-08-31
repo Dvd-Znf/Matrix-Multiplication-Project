@@ -3,11 +3,20 @@
 #include<string.h>
 #include<readline/readline.h>
 #include<readline/history.h>
+#include<signal.h>
 
 #include"functions.h"
 #include"stacks.h"
 
 using namespace std;
+
+void sigint_handler(int sig){
+	write(STDOUT_FILENO,"\n\e[91mFatal:\e[0m ",17);
+	write(STDOUT_FILENO,"Caught signal interrupt Ctr+C !\nIf you want to exit cleanly please use the exit function from the cli\nNow exiting with return code: 1\n",134);
+
+	exit(1);
+}
+
 
 char** character_name_completion(const char *, int, int);
 char* character_name_generator(const char *, int);
@@ -87,6 +96,9 @@ int main(int argc, char* argv[])
 	using_history();
 	rl_attempted_completion_function = character_name_completion;
 	//rl_completion_suppress_append = 1;
+
+	signal(SIGINT,sigint_handler);
+
 
 	while(true){
 	char* input = readline("mmp>>> ");
