@@ -16,7 +16,8 @@ Addition - show the sum of two matrices
 Trace - show the trace of a matrix  
 Multiplication - multiply a matrix by an integer or by another matrix  
 ## To be added:
-- [ ] Verbose mode/switch     
+- [ ] Verbose mode/switch
+- [ ] Add matrix transpose function            
 - [ ] Non-interactive mode, which should be compatible with the Unix pipeline    
 ## How to install
 ### Dependecies:
