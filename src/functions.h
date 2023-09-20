@@ -152,6 +152,32 @@ void fshow()
 
 }
 
+
+void ftranspose()
+{
+	cout<<"Which one?(A,B,C,D)";
+	char resp=' ';
+	cin>>resp;
+	
+
+	if(resp>='A' && resp<='D'){
+		for(int chi=0;chi<4;chi++){
+			if(resp==structStack.name[chi] && structStack.index[chi][0]!=0 && structStack.index[chi][1]!=0){
+				for(int i=1;i<=structStack.index[chi][1];i++){
+					for(int j=1;j<=structStack.index[chi][0];j++){
+						cout<<" "<<structStack.mat[chi][j][i];
+					}
+					cout<<"\n";
+				}
+			}
+		}return;
+		} else {
+		cout<<WARNING_RESPONSE;
+	}
+	
+}
+
+
 void addmatrix(int mn[20][20],int mm[20][20],int sin,int sjn,int sim,int sjm)
 {
 	if(sin!=sim || sjn!=sjm){

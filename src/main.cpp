@@ -43,6 +43,7 @@ char* function_names[] = {
 	"show",
 	"addition",
 	"multiplication",
+	"transpose",
 	"trace",
 	"version",
 	NULL
