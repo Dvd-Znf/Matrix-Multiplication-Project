@@ -111,7 +111,7 @@ int main(int argc, char* argv[])
 		add_history(input);
 	}
 
-	for(int i=0;i<9;i++){
+	for(int i=0;i<10;i++){
 		//if(string(cliStack.names[i]) == string(input)){
 		if(string(input).find(string(cliStack.names[i])) != string::npos){
 			(*cliStack.functions[i])();
