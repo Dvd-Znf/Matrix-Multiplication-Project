@@ -86,7 +86,7 @@ int main(int argc, char* argv[])
             return 0;
         } else {
 			cout<<argv[i]<<" unknown command\n";
-			return 0;
+			return 1;
 		}
 	}
 
