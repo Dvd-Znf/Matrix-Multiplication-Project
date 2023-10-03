@@ -18,7 +18,7 @@ Trace - show the trace of a matrix
 Multiplication - multiply a matrix by an integer or by another matrix  
 ## To be added:
 - [ ] Verbose mode/switch         
-- [ ] Non-interactive mode, which should be compatible with the Unix pipeline      
+- [ ] Non-interactive(inline) mode       
 ## How to install
 ### Dependecies:
 - readline (library probably already included, if you use bash)    
