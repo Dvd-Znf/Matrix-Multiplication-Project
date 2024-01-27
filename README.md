@@ -18,7 +18,8 @@ Trace - show the trace of a matrix
 Multiplication - multiply a matrix by an integer or by another matrix  
 ## To be added:
 - [ ] Verbose mode/switch         
-- [ ] Non-interactive(inline) mode       
+- [ ] Non-interactive(inline) mode
+- [ ] Package for AUR    
 ## How to install
 ### Dependecies:
 - readline (library probably already included, if you use bash)    
