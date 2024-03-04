@@ -1,4 +1,5 @@
 # The Matrix Multiplication Project
+![GitHub Release](https://img.shields.io/github/v/release/Dvd-Znf/Matrix-Multiplication-Project?include_prereleases&logo=GitHub&label=Latest%20release%20version%3A&color=lightgreen)     
 Multiplication, Addition and Tracing of matrices of your chosing  
 ![Screenshot](/Screenshot.png)  
 ## About:
