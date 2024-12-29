@@ -2,8 +2,9 @@
 ![GitHub Release](https://img.shields.io/github/v/release/Dvd-Znf/Matrix-Multiplication-Project?include_prereleases&logo=GitHub&label=Latest%20release%20version%3A&color=lightgreen)     
 Multiplication, Addition and Tracing of matrices of your chosing  
 ![Screenshot](/Screenshot.png)  
-> [!NOTE]
-> I plan to do a, MASSIVE amount of refactoring to the code base to acount for a more OOP style.     
+> [!WARNING]
+> I plan to do a, MASSIVE amount of refactoring to the code base to account for propper Object-Oriented Programing paradigm.      
+>     
 > Until this notice is removed, consider the master branch unstable.     
 ## About:
 mmp is a simple yet _cool_ CLI program that allows you to do _cool_ stuf with matrices, for your math class or whatever else   
